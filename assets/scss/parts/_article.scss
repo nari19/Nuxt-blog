@@ -1,0 +1,17 @@
+.contents-title {
+  position: relative;
+  margin-bottom: 36px;
+  font-size: 1.56rem;
+  line-height: 1.4;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 2px;
+    background-color: #8a2be2;
+  }
+}

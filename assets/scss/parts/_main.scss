@@ -1,0 +1,38 @@
+/*
+.main {
+  max-width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px $padding-p-h;
+  background-color: $background-color;
+  @include tablet {
+    padding: 32px ($padding-p-h * 4);
+  }
+  @include desktop {
+    width: 65%;
+  }
+  @include raptop {
+    padding: 32px ($padding-p-h * 3) 32px ($padding-p-h * 7);
+  }
+  @include dark {
+    background-color: #292929;
+  }
+}
+*/
+
+.main {
+  max-width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px $padding-p-h;
+  background-color: $background-color;
+  @include tablet {
+    padding: 32px ($padding-p-h * 4);
+  }
+  @include raptop {
+    padding: 32px ($padding-p-h * 7) 32px ($padding-p-h * 7);
+  }
+  @include dark {
+    background-color: #292929;
+  }
+}

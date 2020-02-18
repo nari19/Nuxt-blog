@@ -1,0 +1,54 @@
+/*** colors ***/
+$primary-color: #8a2be2;
+$secondary-color: #111111;
+$text-color: #292929;
+$background-color: #fbfbfb;
+$gray-color: #a9a9a9;
+
+/*** font size ***/
+$font-size-l4: 1.56rem;
+$font-size-l3: 1.36rem;
+$font-size-l2: 1.24rem;
+$font-size-l1: 1.12rem;
+$font-size-m: 1rem;
+$font-size-s1: 0.9rem;
+$font-size-s2: 0.84rem;
+$font-size-s3: 0.76rem;
+$font-size-s4: 0.68rem;
+
+/*** responsive ***/
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin raptop {
+  @media screen and (min-width: 1264px) {
+    @content;
+  }
+}
+
+/*** dark theme ***/
+@mixin dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+/*** hover ***/
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+/* header height */
+$header-h: 56px;
+
+/* contents padding horizontal */
+$padding-p-h: 32px;

@@ -1,0 +1,72 @@
+html {
+  font-family: Quicksand, -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "ヒラギノ角ゴシック", Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+  line-height: 1.75;
+}
+
+body {
+  color: #333333;
+  background-color: #ffffff;
+  letter-spacing: 0.25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "ヒラギノ角ゴシック", Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+  font-kerning: none;
+  overflow-wrap: break-word;
+  @include dark {
+    color: darken(#fcfcfc, 10%);
+    background-color: #292929;
+  }
+}
+
+p {
+  font-size: $font-size-m;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  font-kerning: auto;
+}
+
+strong {
+  font-weight: 600;
+}
+
+pre {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: $font-size-l4;
+}
+
+h2 {
+  font-size: $font-size-l3;
+}
+
+h3 {
+  font-size: $font-size-l1;
+}
+
+figcaption {
+  font-size: $font-size-s2;
+}
+
+/* dark-theme img style */
+@include dark {
+  img {
+    filter: brightness(0.85);
+  }
+}
