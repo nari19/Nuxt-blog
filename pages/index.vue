@@ -5,6 +5,30 @@
   </div>
 </template>
 
+<script>
+import ArticleCard from "../components/ArticleCard";
+
+export default {
+  head() {
+    return {
+      titleTemplate: null,
+      title: "nari19"
+    };
+  },
+  async asyncData({ env, $axios }) {
+    const data = await $axios.$get(`${env.baseApiUrl}/articles?limit=10`, {
+      headers: {
+        "X-API-KEY": env.API_KEY
+      }
+    });
+    return { posts: data };
+  },
+  components: {
+    ArticleCard
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 .main {
   width: 100%;
@@ -20,27 +44,3 @@
   font-size: 1.42rem;
 }
 </style>
-
-<script>
-import ArticleCard from "../components/ArticleCard";
-
-export default {
-  head() {
-    return {
-      titleTemplate: null,
-      title: "ELELINE"
-    };
-  },
-  async asyncData({ env, $axios }) {
-    const data = await $axios.$get(`${env.baseApiUrl}/blog?limit=10`, {
-      headers: {
-        "X-API-KEY": env.API_KEY
-      }
-    });
-    return { posts: data };
-  },
-  components: {
-    ArticleCard
-  }
-};
-</script>
