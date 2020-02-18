@@ -1,12 +1,5 @@
 # Nuxt Blog
 
-## Powered by
-
-- [Nuxt](https://ja.nuxtjs.org/)
-- [Netlify](https://www.netlify.com/)
-- [microCMS](https://microcms.io/)
-- [eleline blog](https://github.com/eleline/Blog)
-
 ## Build Setup
 
 ```bash
@@ -21,4 +14,11 @@ $ yarn start
 
 # generate static project
 $ yarn generate
-``
+```
+
+## Powered by
+
+- [Nuxt](https://ja.nuxtjs.org/)
+- [Netlify](https://www.netlify.com/)
+- [microCMS](https://microcms.io/)
+- [eleline blog](https://github.com/eleline/Blog)
