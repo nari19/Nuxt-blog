@@ -8,7 +8,7 @@
     >
       <div class="card__thumbnail-frame">
         <picture>
-          <source
+          <!-- <source
             class="card__thumbnail"
             type="image/webp"
             :srcset="post.hero.url + '?fm=webp'"
@@ -17,7 +17,7 @@
             class="card__thumbnail"
             :src="post.hero.url"
             :alt="post.title + 'のサムネイル'"
-          />
+          /> -->
         </picture>
       </div>
       <h3 class="card__title">{{ post.title }}</h3>

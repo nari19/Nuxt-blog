@@ -61,7 +61,7 @@ export default {
     const dir = route.path.split("/");
     const postId = dir[dir.length - 1];
 
-    const data = await $axios.$get(`${env.baseApiUrl}/blog/${postId}`, {
+    const data = await $axios.$get(`${env.baseApiUrl}/articles/${postId}`, {
       headers: {
         "X-API-KEY": env.API_KEY
       }

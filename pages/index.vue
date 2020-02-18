@@ -5,22 +5,6 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-.main {
-  width: 100%;
-  @media screen and (min-width: 768px) {
-    padding: 32px 128px;
-  }
-  @media screen and (min-width: 1264px) {
-    padding: 32px 224px;
-  }
-}
-
-.content-title {
-  font-size: 1.42rem;
-}
-</style>
-
 <script>
 import ArticleCard from "../components/ArticleCard";
 
@@ -28,7 +12,7 @@ export default {
   head() {
     return {
       titleTemplate: null,
-      title: "ELELINE"
+      title: "nari19"
     };
   },
   async asyncData({ env, $axios }) {
@@ -44,3 +28,19 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.main {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    padding: 32px 128px;
+  }
+  @media screen and (min-width: 1264px) {
+    padding: 32px 224px;
+  }
+}
+
+.content-title {
+  font-size: 1.42rem;
+}
+</style>

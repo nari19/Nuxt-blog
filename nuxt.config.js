@@ -1,5 +1,5 @@
 const axios = require("axios");
-require('dotenv').config();
+require("dotenv").config();
 const {
   API_KEY,
   baseApiUrl,
@@ -112,7 +112,7 @@ module.exports = {
   generate: {
     routes() {
       return axios
-        .get(`${process.env.baseApiUrl}/blog`, {
+        .get(`${process.env.baseApiUrl}/articles`, {
           headers: {
             "X-API-KEY": process.env.API_KEY
           }
