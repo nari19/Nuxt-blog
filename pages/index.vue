@@ -32,7 +32,7 @@ export default {
     };
   },
   async asyncData({ env, $axios }) {
-    const data = await $axios.$get(`${env.baseApiUrl}/blog?limit=10`, {
+    const data = await $axios.$get(`${env.baseApiUrl}/articles?limit=10`, {
       headers: {
         "X-API-KEY": env.API_KEY
       }
