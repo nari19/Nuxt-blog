@@ -22,7 +22,10 @@
       </div>
       <h3 class="card__title">{{ post.title }}</h3>
       <p class="card__date">{{ unixTime2ymd(post.createdAt) }}</p>
-      <p class="card__body">{{ post.content }}</p>
+      <!-- <p class="card__body">{{ post.content }}</p> -->
+      <span 
+         v-for="(tag, index) in post.tags"
+         :key="index">{{ tag.name}} </span>
     </nuxt-link>
   </div>
 </template>
