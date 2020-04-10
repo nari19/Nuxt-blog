@@ -23,9 +23,9 @@
       <h3 class="card__title">{{ post.title }}</h3>
       <p class="card__date">{{ unixTime2ymd(post.createdAt) }}</p>
       <!-- <p class="card__body">{{ post.content }}</p> -->
-      <span 
-         v-for="(tag, index) in post.tags"
-         :key="index">{{ tag.name}} </span>
+      <span v-for="(tag, index) in post.tags" :key="index"
+        >{{ tag.name }}
+      </span>
     </nuxt-link>
   </div>
 </template>
@@ -34,13 +34,11 @@
 export default {
   props: ["posts"],
   methods: {
-    unixTime2ymd: function(intTime) {
+    unixTime2ymd: intTime => {
       const d = new Date(intTime);
-
       const year = d.getFullYear();
       const month = d.getMonth() + 1;
       const day = d.getDate();
-
       return `${year}年${month}月${day}日`;
     }
   }
