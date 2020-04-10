@@ -69,17 +69,17 @@ export default {
 
     return {
       loading: false,
-      currentBody: data.body,
+      currentBody: data.content,
       currentTitle: data.title,
-      currentThumbnail: data.hero.url,
-      currentDate: data.date,
-      currentAuther: data.auther,
+      currentThumbnail: data.image.url,
+      currentDate: data.createdAt,
+      currentAuther: "nari19",
       meta: {
         title: data.title,
         description: data.description,
         type: "article",
         url: `https://eleline.dev/posts/${postId}/`,
-        image: data.hero.url
+        image: data.image.url
       }
     };
   }

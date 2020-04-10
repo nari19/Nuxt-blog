@@ -8,21 +8,24 @@
     >
       <div class="card__thumbnail-frame">
         <picture>
-          <!-- <source
+          <source
             class="card__thumbnail"
             type="image/webp"
-            :srcset="post.hero.url + '?fm=webp'"
+            :srcset="post.image.url + '?fm=webp'"
           />
           <img
             class="card__thumbnail"
-            :src="post.hero.url"
+            :src="post.image.url"
             :alt="post.title + 'のサムネイル'"
-          /> -->
+          />
         </picture>
       </div>
       <h3 class="card__title">{{ post.title }}</h3>
-      <p class="card__date">{{ unixTime2ymd(post.date) }}</p>
-      <p class="card__body">{{ post.description }}</p>
+      <p class="card__date">{{ unixTime2ymd(post.createdAt) }}</p>
+      <!-- <p class="card__body">{{ post.content }}</p> -->
+      <span v-for="(tag, index) in post.tags" :key="index"
+        >{{ tag.name }}
+      </span>
     </nuxt-link>
   </div>
 </template>
@@ -31,13 +34,11 @@
 export default {
   props: ["posts"],
   methods: {
-    unixTime2ymd: function(intTime) {
+    unixTime2ymd: intTime => {
       const d = new Date(intTime);
-
       const year = d.getFullYear();
       const month = d.getMonth() + 1;
       const day = d.getDate();
-
       return `${year}年${month}月${day}日`;
     }
   }
