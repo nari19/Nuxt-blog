@@ -1,4 +1,6 @@
-const axios = require("axios");
+import { Configuration } from "@nuxt/types";
+import axios from "axios";
+
 require("dotenv").config();
 const {
   API_KEY,
@@ -9,7 +11,7 @@ const {
   baseOgp
 } = process.env;
 
-module.exports = {
+const nuxtConfig: Configuration = {
   head: {
     htmlAttrs: {
       lang: "ja",
@@ -58,6 +60,7 @@ module.exports = {
   css: [{ src: "~/assets/scss/style.scss", lang: "scss" }],
   plugins: ["~/plugins/prism"],
   modules: [
+    "@nuxt/typescript-build",
     "nuxt-webfontloader",
     "@nuxtjs/pwa",
     "@nuxtjs/axios",
@@ -129,3 +132,5 @@ module.exports = {
     }
   }
 };
+
+module.exports = nuxtConfig;
