@@ -60,13 +60,13 @@ const nuxtConfig: Configuration = {
   css: [{ src: "~/assets/scss/style.scss", lang: "scss" }],
   plugins: ["~/plugins/prism"],
   modules: [
-    "@nuxt/typescript-build",
     "nuxt-webfontloader",
     "@nuxtjs/pwa",
     "@nuxtjs/axios",
     "@nuxtjs/markdownit",
     "@nuxtjs/tailwindcss"
   ],
+  buildModules: ["@nuxt/typescript-build"],
   markdownit: {
     preset: "default",
     injected: true,
