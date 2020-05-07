@@ -20,11 +20,7 @@
         </picture>
       </div>
       <div v-if="loading">Loading</div>
-      <article
-        class="rich-text"
-        v-else
-        v-html="$md.render(currentBody)"
-      ></article>
+      <article v-else class="rich-text">{{ $md.render(currentBody) }}</article>
     </div>
   </div>
 </template>
@@ -35,6 +31,29 @@ import Meta from "~/assets/mixins/meta";
 
 export default {
   mixins: [Meta],
+  async asyncData({ env, route, $axios }) {
+    const dir = route.path.split("/");
+    const postId = dir[dir.length - 1];
+    const data = await $axios.$get(`${env.baseApiUrl}/articles/${postId}`, {
+      headers: { "X-API-KEY": env.API_KEY }
+    });
+
+    return {
+      loading: false,
+      currentBody: data.content,
+      currentTitle: data.title,
+      currentThumbnail: data.image.url,
+      currentDate: data.createdAt,
+      currentAuther: "nari19",
+      meta: {
+        title: data.title,
+        description: data.description,
+        type: "article",
+        url: `https://eleline.dev/posts/${postId}/`,
+        image: data.image.url
+      }
+    };
+  },
   data() {
     return {
       loading: true,
@@ -56,32 +75,6 @@ export default {
 
       return `${year}年${month}月${day}日`;
     }
-  },
-  async asyncData({ env, route, $axios }) {
-    const dir = route.path.split("/");
-    const postId = dir[dir.length - 1];
-
-    const data = await $axios.$get(`${env.baseApiUrl}/articles/${postId}`, {
-      headers: {
-        "X-API-KEY": env.API_KEY
-      }
-    });
-
-    return {
-      loading: false,
-      currentBody: data.content,
-      currentTitle: data.title,
-      currentThumbnail: data.image.url,
-      currentDate: data.createdAt,
-      currentAuther: "nari19",
-      meta: {
-        title: data.title,
-        description: data.description,
-        type: "article",
-        url: `https://eleline.dev/posts/${postId}/`,
-        image: data.image.url
-      }
-    };
   }
 };
 </script>

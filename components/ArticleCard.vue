@@ -1,10 +1,10 @@
 <template>
   <div class="card-index">
     <nuxt-link
-      class="card no-underline"
       v-for="(post, index) in posts.contents"
       :key="index"
       :to="'posts/' + post.id"
+      class="card no-underline"
     >
       <div class="card__thumbnail-frame">
         <picture>
@@ -23,8 +23,8 @@
       <h3 class="card__title">{{ post.title }}</h3>
       <p class="card__date">{{ unixTime2ymd(post.createdAt) }}</p>
       <!-- <p class="card__body">{{ post.content }}</p> -->
-      <span v-for="(tag, index) in post.tags" :key="index"
-        >{{ tag.name }}
+      <span v-for="(tag, _index) in post.tags" :key="_index">
+        {{ tag.name }}
       </span>
     </nuxt-link>
   </div>

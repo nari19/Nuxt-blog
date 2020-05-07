@@ -20,10 +20,30 @@ module.exports = {
   plugins: ["vue"],
   // add your custom rules here
   rules: {
-    semi: [2, "never"],
+    semi: ["error", "always"],
     quotes: ["warn", "double"],
+    "space-before-function-paren": ["error", "never"],
+    "vue/html-self-closing": [
+      "error",
+      {
+        html: {
+          void: "always"
+        }
+      }
+    ],
+    "vue/singleline-html-element-content-newline": "off",
     "no-console": "off",
+    "vue/html-closing-bracket-newline": [
+      "error",
+      {
+        singleline: "never",
+        multiline: "always"
+      }
+    ],
     "vue/max-attributes-per-line": "off",
-    "prettier/prettier": ["error", { semi: false }]
+    "vue/require-prop-types": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "prettier/prettier": ["error", { semi: true }],
+    "object-shorthand": ["error", "always"]
   }
 };
