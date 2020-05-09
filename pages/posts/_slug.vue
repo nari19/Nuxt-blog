@@ -20,11 +20,7 @@
         </picture>
       </div>
       <div v-if="loading">Loading</div>
-      <article
-        class="rich-text"
-        v-else
-        v-html="$md.render(currentBody)"
-      ></article>
+      <article v-else class="rich-text">{{ $md.render(currentBody) }}</article>
     </div>
   </div>
 </template>
@@ -35,36 +31,11 @@ import Meta from "~/assets/mixins/meta";
 
 export default {
   mixins: [Meta],
-  data() {
-    return {
-      loading: true,
-      currentBody: "",
-      currentTitle: "",
-      currentThumbnail: null
-    };
-  },
-  mounted() {
-    Prism.highlightAll();
-  },
-  methods: {
-    unixTime2ymd: function(intTime) {
-      const d = new Date(intTime);
-
-      const year = d.getFullYear();
-      const month = d.getMonth() + 1;
-      const day = d.getDate();
-
-      return `${year}年${month}月${day}日`;
-    }
-  },
   async asyncData({ env, route, $axios }) {
     const dir = route.path.split("/");
     const postId = dir[dir.length - 1];
-
     const data = await $axios.$get(`${env.baseApiUrl}/articles/${postId}`, {
-      headers: {
-        "X-API-KEY": env.API_KEY
-      }
+      headers: { "X-API-KEY": env.API_KEY }
     });
 
     return {
@@ -82,6 +53,28 @@ export default {
         image: data.image.url
       }
     };
+  },
+  data() {
+    return {
+      loading: true,
+      currentBody: "",
+      currentTitle: "",
+      currentThumbnail: null
+    };
+  },
+  mounted() {
+    Prism.highlightAll();
+  },
+  methods: {
+    unixTime2ymd(intTime) {
+      const d = new Date(intTime);
+
+      const year = d.getFullYear();
+      const month = d.getMonth() + 1;
+      const day = d.getDate();
+
+      return `${year}年${month}月${day}日`;
+    }
   }
 };
 </script>

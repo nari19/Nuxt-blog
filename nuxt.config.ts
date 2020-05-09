@@ -1,4 +1,6 @@
-const axios = require("axios");
+import { Configuration } from "@nuxt/types";
+import axios from "axios";
+
 require("dotenv").config();
 const {
   API_KEY,
@@ -9,7 +11,7 @@ const {
   baseOgp
 } = process.env;
 
-module.exports = {
+const nuxtConfig: Configuration = {
   head: {
     htmlAttrs: {
       lang: "ja",
@@ -64,6 +66,7 @@ module.exports = {
     "@nuxtjs/markdownit",
     "@nuxtjs/tailwindcss"
   ],
+  buildModules: ["@nuxt/typescript-build"],
   markdownit: {
     preset: "default",
     injected: true,
@@ -129,3 +132,5 @@ module.exports = {
     }
   }
 };
+
+module.exports = nuxtConfig;
