@@ -66,7 +66,7 @@ export default {
     Prism.highlightAll();
   },
   methods: {
-    unixTime2ymd: function(intTime) {
+    unixTime2ymd(intTime) {
       const d = new Date(intTime);
 
       const year = d.getFullYear();
